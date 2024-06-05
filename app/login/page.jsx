@@ -20,7 +20,7 @@ export default function Login() {
     if (cliente.length == 0) {
       alert("Não está cadastrado")
     } else {
-      // alert("Ok!")
+      alert("Ok!")
       mudaId(cliente[0].id)
       mudaNome(cliente[0].nome)
       localStorage.setItem("cliente_logado", JSON.stringify({id: cliente[0].id, nome: cliente[0].nome}))
