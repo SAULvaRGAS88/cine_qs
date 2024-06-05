@@ -7,11 +7,18 @@ import Link from "next/link"
 export default function Titulo() {
   const { clienteNome, mudaId, mudaNome } = useContext(ClienteContext)
 
+  // function logout() {
+  //   if (confirm("Confirma a saída do sistema? ")) {
+  //     mudaId(null)
+  //     mudaNome("")
+  //     localStorage.removeItem("cliente_logado")
+  //   }
+  // }
   function logout() {
-    if (confirm("Confirma a saída do sistema? ")) {
-      mudaId(null)
-      mudaNome("")
-      localStorage.removeItem("cliente_logado")
+    if (typeof window !== 'undefined' && confirm("Confirma a saída do sistema? ")) {
+      mudaId(null);
+      mudaNome("");
+      localStorage.removeItem("cliente_logado");
     }
   }
 
@@ -31,12 +38,12 @@ export default function Titulo() {
         </div>
         <div className="col">
           <h5 className="text-white text-end">
-          {clienteNome ? clienteNome : "Identifique-se"}
-          {
-            clienteNome ?
-              <i class="ms-2 fs-4 bi bi-person-fill-down" style={{cursor: 'pointer'}} onClick={logout}></i> :
-              <Link href="/login"><i class="ms-2 fs-4 bi bi-person-fill-up text-white"></i></Link>
-          }
+            {clienteNome ? clienteNome : "Identifique-se"}
+            {
+              clienteNome ?
+                <i class="ms-2 fs-4 bi bi-person-fill-down" style={{ cursor: 'pointer' }} onClick={logout}></i> :
+                <Link href="/login"><i class="ms-2 fs-4 bi bi-person-fill-up text-white"></i></Link>
+            }
           </h5>
         </div>
 
